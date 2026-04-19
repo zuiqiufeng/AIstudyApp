@@ -1,0 +1,36 @@
+{
+	"bsonType": "object",
+	"required": ["title", "summary", "content", "status", "publish_at", "created_at", "updated_at"],
+	"properties": {
+		"title": { "bsonType": "string" },
+		"summary": { "bsonType": "string" },
+		"content": { "bsonType": "string" },
+		"cover": { "bsonType": "string" },
+		"tags": {
+			"bsonType": "array",
+			"items": { "bsonType": "string" }
+		},
+		"source_name": { "bsonType": "string" },
+		"source_url": { "bsonType": "string" },
+		"publish_at": {},
+		"is_recommend": { "bsonType": "bool" },
+		"is_top": { "bsonType": "bool" },
+		"sort": { "bsonType": "int" },
+		"status": { "enum": ["draft", "published", "offline"] },
+		"blocks": {
+			"bsonType": "array",
+			"items": {
+				"bsonType": "object",
+				"properties": {
+					"title": { "bsonType": "string" },
+					"body": { "bsonType": "string" },
+					"quote": { "bsonType": "bool" }
+				}
+			}
+		},
+		"view_count": { "bsonType": "int" },
+		"favorite_count": { "bsonType": "int" },
+		"created_at": {},
+		"updated_at": {}
+	}
+}

@@ -1,0 +1,10 @@
+{
+	"bsonType": "object",
+	"required": ["user_id", "checkin_date", "checkin_time", "created_at"],
+	"properties": {
+		"user_id": { "bsonType": "string" },
+		"checkin_date": { "bsonType": "string" },
+		"checkin_time": {},
+		"created_at": {}
+	}
+}

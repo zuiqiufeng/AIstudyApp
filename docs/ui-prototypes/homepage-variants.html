@@ -1,0 +1,1060 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI职场学习打卡 - 首页方案对比</title>
+  <style>
+    :root {
+      --ink-900: #13212d;
+      --ink-800: #1c2f3d;
+      --ink-700: #2c4253;
+      --ink-500: #5f7383;
+      --ink-300: #aebbc5;
+      --paper: #f4efe6;
+      --paper-strong: #f8f4ed;
+      --sand: #e6d7bf;
+      --line: rgba(18, 33, 45, 0.12);
+      --accent: #e07a2f;
+      --accent-soft: #f3c79a;
+      --mint: #8fb9ae;
+      --sky: #cfdbe4;
+      --shadow: 0 18px 40px rgba(19, 33, 45, 0.12);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      --phone-width: 390px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      color: var(--ink-900);
+      background:
+        radial-gradient(circle at top left, rgba(143, 185, 174, 0.22), transparent 32%),
+        linear-gradient(180deg, #efe8dc 0%, #f7f2ea 46%, #f4f0e9 100%);
+    }
+
+    .page {
+      width: min(1320px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 64px;
+    }
+
+    .hero {
+      margin-bottom: 28px;
+      padding: 28px 30px;
+      border: 1px solid rgba(19, 33, 45, 0.08);
+      border-radius: 30px;
+      background: rgba(248, 244, 237, 0.78);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(19, 33, 45, 0.06);
+      color: var(--ink-700);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 16px 0 10px;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 760px;
+      color: var(--ink-700);
+      line-height: 1.75;
+      font-size: 15px;
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .legend span {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(19, 33, 45, 0.08);
+      font-size: 13px;
+      color: var(--ink-700);
+    }
+
+    .variants {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      align-items: start;
+    }
+
+    .variant {
+      min-width: 0;
+    }
+
+    .variant-head {
+      margin-bottom: 14px;
+      padding: 0 6px;
+    }
+
+    .variant-head h2 {
+      margin: 0 0 6px;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .variant-head p {
+      margin: 0;
+      color: var(--ink-700);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .phone {
+      position: relative;
+      width: 100%;
+      max-width: var(--phone-width);
+      margin: 0 auto;
+      padding: 14px;
+      border-radius: 36px;
+      background: linear-gradient(180deg, #233746 0%, #101923 100%);
+      box-shadow: 0 30px 70px rgba(19, 33, 45, 0.22);
+    }
+
+    .phone::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      width: 118px;
+      height: 20px;
+      transform: translateX(-50%);
+      border-radius: 0 0 14px 14px;
+      background: #0f1821;
+      z-index: 2;
+    }
+
+    .screen {
+      position: relative;
+      overflow: hidden;
+      min-height: 820px;
+      border-radius: 28px;
+      background: var(--paper-strong);
+    }
+
+    .screen-inner {
+      position: relative;
+      padding: 26px 18px 96px;
+      min-height: 820px;
+    }
+
+    .screen.a {
+      background:
+        radial-gradient(circle at top right, rgba(224, 122, 47, 0.18), transparent 28%),
+        linear-gradient(180deg, #f5efe6 0%, #f8f3ed 100%);
+    }
+
+    .screen.b {
+      background:
+        radial-gradient(circle at top left, rgba(143, 185, 174, 0.18), transparent 24%),
+        linear-gradient(180deg, #f3f5f4 0%, #f7f4ef 100%);
+    }
+
+    .screen.c {
+      background:
+        linear-gradient(180deg, rgba(19, 33, 45, 0.04) 0, rgba(19, 33, 45, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(19, 33, 45, 0.04) 0, rgba(19, 33, 45, 0.04) 1px, transparent 1px),
+        linear-gradient(180deg, #f7f1ea 0%, #f3ede5 100%);
+      background-size: 100% 40px, 40px 100%, 100% 100%;
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      color: var(--ink-700);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 10px 0 0 rgba(19, 33, 45, 0.18), 20px 0 0 rgba(19, 33, 45, 0.18);
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .topbar h3 {
+      margin: 6px 0 6px;
+      font-size: 30px;
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+    }
+
+    .topbar p {
+      margin: 0;
+      color: var(--ink-700);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .avatar {
+      flex: 0 0 auto;
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--ink-700), var(--accent));
+      box-shadow: 0 12px 24px rgba(19, 33, 45, 0.16);
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: 0 14px 28px rgba(19, 33, 45, 0.06);
+      backdrop-filter: blur(10px);
+    }
+
+    .checkin-card {
+      margin-bottom: 18px;
+      padding: 18px;
+    }
+
+    .checkin-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .checkin-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: var(--ink-700);
+      font-weight: 700;
+    }
+
+    .checkin-title .pill {
+      display: inline-flex;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(224, 122, 47, 0.14);
+      color: #a5541e;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+    }
+
+    .checkin-card h4 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+    }
+
+    .checkin-card p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--ink-700);
+      line-height: 1.7;
+    }
+
+    .ring {
+      position: relative;
+      flex: 0 0 auto;
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background:
+        conic-gradient(var(--accent) 0 280deg, rgba(19, 33, 45, 0.08) 280deg 360deg);
+    }
+
+    .ring::before {
+      content: "";
+      position: absolute;
+      inset: 10px;
+      border-radius: 50%;
+      background: #fcfaf6;
+    }
+
+    .ring strong,
+    .ring span {
+      position: relative;
+      z-index: 1;
+      display: block;
+      text-align: center;
+    }
+
+    .ring strong {
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .ring span {
+      margin-top: 4px;
+      font-size: 11px;
+      color: var(--ink-500);
+      letter-spacing: 0.04em;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .stat {
+      padding: 12px;
+      border-radius: var(--radius-md);
+      background: rgba(19, 33, 45, 0.04);
+    }
+
+    .stat-label {
+      display: block;
+      color: var(--ink-500);
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .stat-value {
+      display: block;
+      margin-top: 8px;
+      font-size: 21px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .action-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 16px;
+      padding: 14px 16px;
+      font: inherit;
+      cursor: pointer;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      flex: 1;
+      color: white;
+      background: linear-gradient(135deg, #203748 0%, #e07a2f 100%);
+      box-shadow: 0 14px 20px rgba(224, 122, 47, 0.22);
+    }
+
+    .btn-ghost {
+      color: var(--ink-700);
+      background: rgba(19, 33, 45, 0.06);
+    }
+
+    .section {
+      margin-top: 18px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      padding: 0 2px;
+    }
+
+    .section-head h5 {
+      margin: 0;
+      font-size: 17px;
+      letter-spacing: -0.02em;
+    }
+
+    .section-head span {
+      color: var(--ink-500);
+      font-size: 12px;
+    }
+
+    .story {
+      padding: 16px;
+      margin-bottom: 10px;
+    }
+
+    .story-top {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      color: var(--ink-500);
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .tag {
+      display: inline-flex;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: rgba(19, 33, 45, 0.07);
+      color: var(--ink-700);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .story h6 {
+      margin: 0 0 8px;
+      font-size: 17px;
+      line-height: 1.35;
+      letter-spacing: -0.02em;
+    }
+
+    .story p {
+      margin: 0 0 12px;
+      color: var(--ink-700);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .story-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .board {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .mini-panel {
+      padding: 14px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.66);
+      border: 1px solid var(--line);
+    }
+
+    .mini-panel h6 {
+      margin: 0 0 8px;
+      font-size: 13px;
+      color: var(--ink-700);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .day {
+      aspect-ratio: 1;
+      border-radius: 10px;
+      background: rgba(19, 33, 45, 0.06);
+    }
+
+    .day.active {
+      background: linear-gradient(135deg, rgba(143, 185, 174, 0.55), rgba(224, 122, 47, 0.4));
+    }
+
+    .tiles {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .tile {
+      padding: 14px;
+      border-radius: 18px;
+      color: var(--ink-900);
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.74);
+    }
+
+    .tile strong {
+      display: block;
+      margin-top: 8px;
+      font-size: 24px;
+      letter-spacing: -0.03em;
+    }
+
+    .tile span {
+      color: var(--ink-500);
+      font-size: 12px;
+    }
+
+    .mag-hero {
+      padding: 18px;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+
+    .mag-hero::after {
+      content: "";
+      position: absolute;
+      top: 22px;
+      right: -18px;
+      width: 92px;
+      height: 92px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(224, 122, 47, 0.3), rgba(19, 33, 45, 0.06));
+      transform: rotate(14deg);
+    }
+
+    .mag-hero .section-note {
+      display: inline-flex;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(19, 33, 45, 0.06);
+      color: var(--ink-700);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .mag-hero h4 {
+      position: relative;
+      z-index: 1;
+      max-width: 240px;
+      margin: 12px 0 10px;
+      font-size: 30px;
+      line-height: 1.06;
+      letter-spacing: -0.04em;
+    }
+
+    .mag-hero p {
+      position: relative;
+      z-index: 1;
+      max-width: 240px;
+      margin: 0;
+      color: var(--ink-700);
+      font-size: 13px;
+      line-height: 1.75;
+    }
+
+    .feed {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .feed-item {
+      display: grid;
+      grid-template-columns: 86px 1fr;
+      gap: 12px;
+      padding: 14px;
+    }
+
+    .thumb {
+      height: 86px;
+      border-radius: 18px;
+      background:
+        linear-gradient(145deg, rgba(19, 33, 45, 0.12), rgba(224, 122, 47, 0.18)),
+        linear-gradient(180deg, #e8ded0, #f5efe6);
+    }
+
+    .feed-item h6 {
+      margin: 0 0 6px;
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .feed-item p {
+      margin: 0 0 10px;
+      color: var(--ink-700);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .bottom-bar {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      padding: 10px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(19, 33, 45, 0.08);
+      box-shadow: 0 14px 28px rgba(19, 33, 45, 0.12);
+      backdrop-filter: blur(12px);
+    }
+
+    .tab {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 4px;
+      color: var(--ink-500);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .tab::before {
+      content: "";
+      width: 18px;
+      height: 18px;
+      border-radius: 6px;
+      background: rgba(19, 33, 45, 0.12);
+    }
+
+    .tab.active {
+      color: var(--ink-900);
+      background: rgba(19, 33, 45, 0.05);
+      border-radius: 16px;
+    }
+
+    .tab.active::before {
+      background: linear-gradient(135deg, var(--ink-700), var(--accent));
+    }
+
+    .variant-footer {
+      margin-top: 12px;
+      padding: 0 6px;
+      color: var(--ink-700);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .state-note {
+      display: inline-flex;
+      margin-top: 10px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(143, 185, 174, 0.18);
+      color: #315649;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    @media (max-width: 1180px) {
+      .variants {
+        grid-template-columns: 1fr;
+      }
+
+      .phone {
+        max-width: 420px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <span class="eyebrow">Homepage Variants / AI Workplace Learning</span>
+      <h1>AI职场学习打卡首页方案对比</h1>
+      <p>
+        同一套产品定位下，我把首页拆成三种不同视觉路线，方便你快速比较“签到主线、内容价值感、个人成长感”分别该压多重。
+        三套都保持微信小程序落地可行，不走过度炫技路线。
+      </p>
+      <div class="legend">
+        <span>A. Editorial Growth：内容产品感最强，推荐优先看</span>
+        <span>B. Dashboard Growth：成长面板感更强</span>
+        <span>C. Knowledge Magazine：内容质感最佳，但签到稍弱</span>
+      </div>
+    </section>
+
+    <section class="variants">
+      <article class="variant">
+        <header class="variant-head">
+          <h2>A. Editorial Growth</h2>
+          <p>签到卡是首屏主角，热点与知识采用编辑式卡片分发。整体像高质量内容产品，不像资讯 App。</p>
+        </header>
+        <div class="phone">
+          <div class="screen a">
+            <div class="screen-inner">
+              <div class="status">
+                <span>9:41</span>
+                <span class="dot" aria-hidden="true"></span>
+              </div>
+              <div class="topbar">
+                <div>
+                  <p>早上好，今天适合完成一次轻学习</p>
+                  <h3>先签到，再看今天最值的 AI 信息</h3>
+                </div>
+                <div class="avatar">L</div>
+              </div>
+
+              <section class="card checkin-card">
+                <div class="checkin-top">
+                  <div>
+                    <div class="checkin-title">
+                      <span>今日签到</span>
+                      <span class="pill">核心入口</span>
+                    </div>
+                    <h4>正在形成你的 AI 学习惯性</h4>
+                    <p>今天还没签到。完成一次打卡后，继续浏览为职场人筛过的热点与知识卡片。</p>
+                  </div>
+                  <div class="ring">
+                    <div>
+                      <strong>28</strong>
+                      <span>连续天数</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="stats-row">
+                  <div class="stat">
+                    <span class="stat-label">累计签到</span>
+                    <span class="stat-value">94</span>
+                  </div>
+                  <div class="stat">
+                    <span class="stat-label">本周完成</span>
+                    <span class="stat-value">5/7</span>
+                  </div>
+                  <div class="stat">
+                    <span class="stat-label">今日状态</span>
+                    <span class="stat-value">待签</span>
+                  </div>
+                </div>
+                <div class="action-row">
+                  <button class="btn btn-primary" type="button">立即签到</button>
+                  <button class="btn btn-ghost" type="button">签到记录</button>
+                </div>
+              </section>
+
+              <section class="section">
+                <div class="section-head">
+                  <h5>今日热点</h5>
+                  <span>编辑精选 3 条</span>
+                </div>
+                <div class="card story">
+                  <div class="story-top">
+                    <span class="tag">置顶解读</span>
+                    <span>09:20 更新</span>
+                  </div>
+                  <h6>多家办公产品开始内置 AI 代理，工具能力从“辅助”走向“代办”</h6>
+                  <p>不只是写文案，新的重点正在变成流程执行。对职场人的意义是，AI 将越来越像协作对象，而不是单点工具。</p>
+                  <div class="story-meta">
+                    <span class="tag">流程自动化</span>
+                    <span class="tag">办公提效</span>
+                  </div>
+                </div>
+                <div class="card story">
+                  <div class="story-top">
+                    <span class="tag">热点速览</span>
+                    <span>07:55 发布</span>
+                  </div>
+                  <h6>AI 搜索结果开始更强调来源可信度，行业从“能答”转向“答得稳”</h6>
+                  <p>对内容团队和知识型岗位来说，接下来最值钱的不是快，而是结构化、可溯源和可复用。</p>
+                </div>
+              </section>
+
+              <section class="section">
+                <div class="section-head">
+                  <h5>知识精选</h5>
+                  <span>今天适合读 5 分钟</span>
+                </div>
+                <div class="card story">
+                  <div class="story-top">
+                    <span class="tag">提示词技巧</span>
+                    <span>中级</span>
+                  </div>
+                  <h6>把“让 AI 帮我写”改成“让 AI 先拆任务”，输出质量会稳定很多</h6>
+                  <p>当你先让模型识别目标、对象、约束与格式时，结果会明显更接近真实工作场景。</p>
+                  <div class="story-meta">
+                    <span class="tag">结构化表达</span>
+                    <span class="tag">模板复用</span>
+                  </div>
+                </div>
+              </section>
+
+              <nav class="bottom-bar">
+                <div class="tab active">首页</div>
+                <div class="tab">热点</div>
+                <div class="tab">知识</div>
+                <div class="tab">我的</div>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <div class="variant-footer">
+          最适合当前产品阶段。签到和内容两件事的优先级最清楚，既能拉新也能留存。
+          <div class="state-note">推荐优先推进</div>
+        </div>
+      </article>
+
+      <article class="variant">
+        <header class="variant-head">
+          <h2>B. Dashboard Growth</h2>
+          <p>更偏个人成长面板，签到状态、连续天数、月历和使用沉淀被提到更靠前的位置。</p>
+        </header>
+        <div class="phone">
+          <div class="screen b">
+            <div class="screen-inner">
+              <div class="status">
+                <span>9:41</span>
+                <span class="dot" aria-hidden="true"></span>
+              </div>
+              <div class="topbar">
+                <div>
+                  <p>你的学习盘面已刷新</p>
+                  <h3>今天的成长信号，一眼看完</h3>
+                </div>
+                <div class="avatar">Q</div>
+              </div>
+
+              <section class="tiles">
+                <div class="tile">
+                  <span>连续签到</span>
+                  <strong>28</strong>
+                </div>
+                <div class="tile">
+                  <span>累计天数</span>
+                  <strong>94</strong>
+                </div>
+                <div class="tile">
+                  <span>本周完成</span>
+                  <strong>5/7</strong>
+                </div>
+                <div class="tile">
+                  <span>今日状态</span>
+                  <strong>待签</strong>
+                </div>
+              </section>
+
+              <section class="card checkin-card">
+                <div class="checkin-top">
+                  <div>
+                    <div class="checkin-title">
+                      <span>打卡面板</span>
+                      <span class="pill">Retention</span>
+                    </div>
+                    <h4>先完成今天的一次打卡</h4>
+                    <p>这是你的核心动作。完成后再看热点和知识，系统会持续积累你的成长记录。</p>
+                  </div>
+                  <div class="ring" style="background: conic-gradient(var(--mint) 0 250deg, rgba(19,33,45,0.08) 250deg 360deg);">
+                    <div>
+                      <strong>71%</strong>
+                      <span>本月进度</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="action-row">
+                  <button class="btn btn-primary" type="button">完成签到</button>
+                  <button class="btn btn-ghost" type="button">查看月历</button>
+                </div>
+
+                <div class="board">
+                  <div class="mini-panel">
+                    <h6>本月签到概览</h6>
+                    <div class="calendar">
+                      <div class="day active"></div>
+                      <div class="day active"></div>
+                      <div class="day active"></div>
+                      <div class="day active"></div>
+                      <div class="day active"></div>
+                      <div class="day"></div>
+                      <div class="day"></div>
+                      <div class="day active"></div>
+                      <div class="day active"></div>
+                      <div class="day active"></div>
+                      <div class="day active"></div>
+                      <div class="day active"></div>
+                      <div class="day active"></div>
+                      <div class="day"></div>
+                      <div class="day active"></div>
+                      <div class="day active"></div>
+                      <div class="day active"></div>
+                      <div class="day active"></div>
+                      <div class="day active"></div>
+                      <div class="day"></div>
+                      <div class="day"></div>
+                    </div>
+                  </div>
+                  <div class="mini-panel">
+                    <h6>今日建议</h6>
+                    <p style="margin:0; font-size:13px; line-height:1.7; color:var(--ink-700);">
+                      签到后读 1 条热点、收藏 1 张知识卡片，就能完成今天的轻学习闭环。
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+              <section class="section">
+                <div class="section-head">
+                  <h5>今日热点速览</h5>
+                  <span>更像情报摘要</span>
+                </div>
+                <div class="card story">
+                  <div class="story-top">
+                    <span class="tag">推荐</span>
+                    <span>AI 协作</span>
+                  </div>
+                  <h6>企业正在把 AI 从“可选工具”改造成“工作流程入口”</h6>
+                  <p>意味着个人竞争力不再只是会不会用单个工具，而是能不能把 AI 纳入日常流程。</p>
+                </div>
+              </section>
+
+              <section class="section">
+                <div class="section-head">
+                  <h5>知识卡片</h5>
+                  <span>适合收藏后复用</span>
+                </div>
+                <div class="card story">
+                  <div class="story-top">
+                    <span class="tag">办公提效</span>
+                    <span>Beginner</span>
+                  </div>
+                  <h6>会议纪要类提示词，重点不是“写完整”，而是先对齐输出结构</h6>
+                  <p>结构稳定以后，才适合沉淀成个人模板，后续才能真正省时间。</p>
+                </div>
+              </section>
+
+              <nav class="bottom-bar">
+                <div class="tab active">首页</div>
+                <div class="tab">热点</div>
+                <div class="tab">知识</div>
+                <div class="tab">我的</div>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <div class="variant-footer">
+          更强调“我的成长盘面”。如果你后面很看重签到留存和月度记录，这个方向会更强。
+        </div>
+      </article>
+
+      <article class="variant">
+        <header class="variant-head">
+          <h2>C. Knowledge Magazine</h2>
+          <p>内容质感最强，像轻杂志与知识刊物的结合。适合做品牌气质，但签到主线会稍弱。</p>
+        </header>
+        <div class="phone">
+          <div class="screen c">
+            <div class="screen-inner">
+              <div class="status">
+                <span>9:41</span>
+                <span class="dot" aria-hidden="true"></span>
+              </div>
+              <div class="topbar">
+                <div>
+                  <p>本日选题 / 适合通勤阅读</p>
+                  <h3>把 AI 读懂，也把它用进工作</h3>
+                </div>
+                <div class="avatar">M</div>
+              </div>
+
+              <section class="card mag-hero">
+                <span class="section-note">Today Feature</span>
+                <h4>签到不是任务感，而是建立一条稳定的学习轨道</h4>
+                <p>今天的首页更强调内容氛围。签到保留，但作为内容体验的一部分出现，不做强数据面板。</p>
+                <div class="action-row" style="position:relative; z-index:1; margin-top:16px;">
+                  <button class="btn btn-primary" type="button">今日签到</button>
+                  <button class="btn btn-ghost" type="button">浏览专题</button>
+                </div>
+              </section>
+
+              <section class="section">
+                <div class="section-head">
+                  <h5>主编推荐热点</h5>
+                  <span>更强调选题感</span>
+                </div>
+                <div class="feed">
+                  <div class="card feed-item">
+                    <div class="thumb"></div>
+                    <div>
+                      <div class="story-top" style="margin-bottom:8px;">
+                        <span class="tag">热点</span>
+                        <span>趋势判断</span>
+                      </div>
+                      <h6>当 AI 开始接管复杂流程，岗位价值会重新回到判断与整合</h6>
+                      <p>越来越多工具在替代“执行”，人会更多站到设定目标和审查结果的位置。</p>
+                    </div>
+                  </div>
+                  <div class="card feed-item">
+                    <div class="thumb"></div>
+                    <div>
+                      <div class="story-top" style="margin-bottom:8px;">
+                        <span class="tag">知识</span>
+                        <span>工作方法</span>
+                      </div>
+                      <h6>会写提示词不够，能持续沉淀模板才是真正的职场优势</h6>
+                      <p>内容更像一组精心挑选的知识卡，不是普通资讯流。</p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="section">
+                <div class="section-head">
+                  <h5>今日摘记</h5>
+                  <span>更像内容陈列</span>
+                </div>
+                <div class="card story">
+                  <div class="story-top">
+                    <span class="tag">知识精选</span>
+                    <span>5 分钟可读</span>
+                  </div>
+                  <h6>好的 AI 学习产品，不是把信息塞满，而是把“今天该看什么”判断好</h6>
+                  <p>这个方案很适合做品牌内容，但如果你想强化签到和成长数据，首页重心需要再往“动作”侧拉一点。</p>
+                </div>
+              </section>
+
+              <nav class="bottom-bar">
+                <div class="tab active">首页</div>
+                <div class="tab">热点</div>
+                <div class="tab">知识</div>
+                <div class="tab">我的</div>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <div class="variant-footer">
+          气质最好看，但更适合后期品牌升级。第一版如果以签到留存为主，这个方案不如 A 直接。
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

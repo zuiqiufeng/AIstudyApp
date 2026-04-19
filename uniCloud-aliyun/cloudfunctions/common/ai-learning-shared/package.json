@@ -1,0 +1,15 @@
+{
+	"name": "ai-learning-shared",
+	"version": "1.0.0",
+	"description": "Shared helpers for the AI learning mini program cloud objects",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"dependencies": {
+		"uni-id-common": "file:../../../../uni_modules/uni-id-common/uniCloud/cloudfunctions/common/uni-id-common"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC"
+}

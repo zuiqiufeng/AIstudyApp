@@ -1,0 +1,7 @@
+{
+	"name": "ai-content-co",
+	"dependencies": {
+		"ai-learning-shared": "file:../common/ai-learning-shared",
+		"uni-id-common": "file:../../../uni_modules/uni-id-common/uniCloud/cloudfunctions/common/uni-id-common"
+	}
+}

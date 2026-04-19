@@ -1,0 +1,1443 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI职场学习打卡 - Warm Editorial 全页原型</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-soft: #faf7f2;
+      --bg-warm: #f7efe6;
+      --ink-strong: #1e2a33;
+      --ink-body: #66737f;
+      --ink-soft: #8a95a0;
+      --accent: #a96a43;
+      --accent-soft: #f3e7dc;
+      --line: #e9e3db;
+      --line-strong: #ddd4c8;
+      --navy: #243847;
+      --shadow: 0 20px 44px rgba(24, 33, 40, 0.08);
+      --phone-shadow: 0 30px 70px rgba(22, 30, 37, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      color: var(--ink-strong);
+      background: var(--bg);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: min(1440px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 32px 0 72px;
+    }
+
+    .hero {
+      padding: 30px 32px;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background: linear-gradient(180deg, #fff 0%, #fffdf9 100%);
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--bg-soft);
+      color: var(--ink-body);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 18px 0 10px;
+      font-size: clamp(28px, 4vw, 46px);
+      line-height: 1.06;
+      letter-spacing: -0.04em;
+    }
+
+    .hero p {
+      max-width: 820px;
+      margin: 0;
+      color: var(--ink-body);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .tokens {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .token {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fff;
+    }
+
+    .swatch {
+      width: 100%;
+      height: 54px;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      margin-bottom: 10px;
+    }
+
+    .token strong,
+    .token span {
+      display: block;
+    }
+
+    .token strong {
+      font-size: 13px;
+    }
+
+    .token span {
+      margin-top: 4px;
+      color: var(--ink-body);
+      font-size: 12px;
+    }
+
+    .jump {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .jump a {
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--ink-body);
+      background: #fff;
+      font-size: 13px;
+    }
+
+    .screens {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px 24px;
+      margin-top: 30px;
+      align-items: start;
+    }
+
+    .screen-group h2 {
+      margin: 0 0 8px;
+      font-size: 22px;
+      letter-spacing: -0.03em;
+    }
+
+    .screen-group p {
+      margin: 0 0 14px;
+      color: var(--ink-body);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .phone {
+      position: relative;
+      width: 100%;
+      max-width: 390px;
+      margin: 0 auto;
+      padding: 14px;
+      border-radius: 36px;
+      background: linear-gradient(180deg, #263341 0%, #11171d 100%);
+      box-shadow: var(--phone-shadow);
+    }
+
+    .phone::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      width: 118px;
+      height: 20px;
+      transform: translateX(-50%);
+      border-radius: 0 0 14px 14px;
+      background: #121920;
+      z-index: 3;
+    }
+
+    .screen {
+      overflow: hidden;
+      min-height: 820px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, #fff 0%, #fffdfa 100%);
+    }
+
+    .screen-inner {
+      position: relative;
+      min-height: 820px;
+      padding: 26px 18px 96px;
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      color: var(--ink-body);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .signal {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 10px 0 0 rgba(0, 0, 0, 0.12), 20px 0 0 rgba(0, 0, 0, 0.12);
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .topbar p {
+      margin: 0;
+      color: var(--ink-body);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .topbar h3 {
+      margin: 6px 0 0;
+      font-size: 30px;
+      line-height: 1.06;
+      letter-spacing: -0.04em;
+    }
+
+    .avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--navy), var(--accent));
+      box-shadow: 0 12px 24px rgba(36, 56, 71, 0.14);
+      flex: 0 0 auto;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: #fffdfa;
+      box-shadow: 0 12px 28px rgba(30, 42, 51, 0.05);
+    }
+
+    .editorial-card {
+      margin-bottom: 18px;
+      padding: 18px;
+      background:
+        linear-gradient(135deg, rgba(243, 231, 220, 0.85), rgba(255, 253, 250, 0.98)),
+        #fffdfa;
+    }
+
+    .editorial-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .label-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      color: var(--ink-body);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      font-weight: 700;
+    }
+
+    .chip-accent {
+      background: var(--accent-soft);
+      color: #8d5531;
+    }
+
+    .chip-soft {
+      background: var(--bg-soft);
+      color: var(--ink-body);
+    }
+
+    .editorial-card h4 {
+      max-width: 240px;
+      margin: 0 0 8px;
+      font-size: 29px;
+      line-height: 1.06;
+      letter-spacing: -0.04em;
+    }
+
+    .editorial-card p {
+      margin: 0;
+      color: var(--ink-body);
+      font-size: 13px;
+      line-height: 1.75;
+    }
+
+    .ring {
+      position: relative;
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      background: conic-gradient(var(--accent) 0 280deg, #ece4da 280deg 360deg);
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+    }
+
+    .ring::before {
+      content: "";
+      position: absolute;
+      inset: 10px;
+      border-radius: 50%;
+      background: #fffdfa;
+    }
+
+    .ring strong,
+    .ring span {
+      position: relative;
+      z-index: 1;
+      display: block;
+      text-align: center;
+    }
+
+    .ring strong {
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .ring span {
+      margin-top: 4px;
+      color: var(--ink-soft);
+      font-size: 11px;
+      letter-spacing: 0.04em;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .stat {
+      padding: 12px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.64);
+      border: 1px solid rgba(233, 227, 219, 0.9);
+    }
+
+    .stat span {
+      display: block;
+    }
+
+    .stat-label {
+      color: var(--ink-soft);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .stat-value {
+      margin-top: 8px;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 16px;
+      padding: 14px 16px;
+      font: inherit;
+      cursor: default;
+    }
+
+    .btn-primary {
+      flex: 1;
+      color: #fff;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--accent) 100%);
+      box-shadow: 0 14px 20px rgba(169, 106, 67, 0.18);
+    }
+
+    .btn-secondary {
+      color: var(--ink-body);
+      background: #f9f4ed;
+      border: 1px solid var(--line);
+    }
+
+    .section {
+      margin-top: 18px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+      padding: 0 2px;
+    }
+
+    .section-head h5 {
+      margin: 0;
+      font-size: 17px;
+      letter-spacing: -0.02em;
+    }
+
+    .section-head span {
+      color: var(--ink-soft);
+      font-size: 12px;
+    }
+
+    .story {
+      padding: 16px;
+      margin-bottom: 10px;
+    }
+
+    .story-top {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      color: var(--ink-soft);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .story h6 {
+      margin: 0 0 8px;
+      font-size: 17px;
+      line-height: 1.35;
+      letter-spacing: -0.02em;
+    }
+
+    .story p {
+      margin: 0 0 12px;
+      color: var(--ink-body);
+      font-size: 13px;
+      line-height: 1.72;
+    }
+
+    .story-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tab-bar {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      padding: 10px;
+      border-radius: 22px;
+      border: 1px solid #ece8e1;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 14px 28px rgba(18, 26, 33, 0.08);
+    }
+
+    .tab {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 4px;
+      color: var(--ink-soft);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .tab::before {
+      content: "";
+      width: 18px;
+      height: 18px;
+      border-radius: 6px;
+      background: #dfe5ea;
+    }
+
+    .tab.active {
+      color: var(--ink-strong);
+      background: #faf8f4;
+      border-radius: 16px;
+    }
+
+    .tab.active::before {
+      background: linear-gradient(135deg, var(--navy), var(--accent));
+    }
+
+    .filters {
+      display: flex;
+      gap: 8px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .filter {
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--ink-body);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .filter.active {
+      background: var(--bg-warm);
+      color: #8d5531;
+      border-color: #eadccf;
+    }
+
+    .lead-card {
+      padding: 16px;
+      margin-bottom: 14px;
+      background: linear-gradient(180deg, #fff 0%, #fffbf6 100%);
+    }
+
+    .lead-card h4 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+    .lead-card p {
+      margin: 0;
+      color: var(--ink-body);
+      font-size: 13px;
+      line-height: 1.75;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .backbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+      color: var(--ink-body);
+      font-size: 13px;
+    }
+
+    .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+    }
+
+    .back::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-left: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: rotate(45deg);
+      margin-left: 2px;
+    }
+
+    .article-title {
+      margin: 0 0 10px;
+      font-size: 30px;
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+    }
+
+    .article-summary {
+      margin: 0;
+      color: var(--ink-body);
+      font-size: 14px;
+      line-height: 1.85;
+    }
+
+    .content-block {
+      margin-top: 18px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: #fffdfa;
+    }
+
+    .content-block h5 {
+      margin: 0 0 10px;
+      font-size: 17px;
+    }
+
+    .content-block p {
+      margin: 0;
+      color: var(--ink-body);
+      font-size: 14px;
+      line-height: 1.85;
+    }
+
+    .quote {
+      border-left: 3px solid var(--accent);
+      padding-left: 14px;
+      color: #51616f;
+    }
+
+    .floating-actions {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      padding: 12px;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 14px 28px rgba(18, 26, 33, 0.08);
+    }
+
+    .profile-card {
+      padding: 18px;
+      margin-bottom: 16px;
+      background: linear-gradient(180deg, #fff 0%, #fffbf6 100%);
+    }
+
+    .profile-top {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .profile-avatar {
+      width: 58px;
+      height: 58px;
+      border-radius: 20px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 20px;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--navy), var(--accent));
+    }
+
+    .profile-card h4 {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.1;
+    }
+
+    .profile-card p {
+      margin: 4px 0 0;
+      color: var(--ink-body);
+      font-size: 13px;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .mini-card {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fff;
+    }
+
+    .mini-card span,
+    .mini-card strong {
+      display: block;
+    }
+
+    .mini-card span {
+      color: var(--ink-soft);
+      font-size: 12px;
+    }
+
+    .mini-card strong {
+      margin-top: 8px;
+      font-size: 24px;
+      letter-spacing: -0.03em;
+    }
+
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 6px;
+      margin-top: 14px;
+    }
+
+    .day {
+      aspect-ratio: 1;
+      border-radius: 10px;
+      background: #f3eee7;
+    }
+
+    .day.active {
+      background: linear-gradient(135deg, rgba(36, 56, 71, 0.18), rgba(169, 106, 67, 0.26));
+    }
+
+    .menu-card {
+      padding: 16px;
+      margin-bottom: 10px;
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .menu-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .menu-title {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .menu-title strong {
+      font-size: 15px;
+    }
+
+    .menu-title span {
+      color: var(--ink-body);
+      font-size: 12px;
+    }
+
+    .arrow {
+      width: 9px;
+      height: 9px;
+      border-top: 2px solid #95a1ab;
+      border-right: 2px solid #95a1ab;
+      transform: rotate(45deg);
+      margin-right: 4px;
+    }
+
+    .list-card {
+      padding: 16px;
+      margin-bottom: 10px;
+    }
+
+    .list-card h4 {
+      margin: 0 0 8px;
+      font-size: 17px;
+      line-height: 1.4;
+      letter-spacing: -0.02em;
+    }
+
+    .list-card p {
+      margin: 0;
+      color: var(--ink-body);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .empty {
+      padding: 34px 18px;
+      text-align: center;
+      color: var(--ink-body);
+    }
+
+    @media (max-width: 1260px) {
+      .screens {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 860px) {
+      .page {
+        width: min(100%, calc(100% - 20px));
+        padding: 20px 0 48px;
+      }
+
+      .tokens {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .screens {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <span class="eyebrow">Warm Editorial / Full Prototype</span>
+      <h1>AI职场学习打卡整套页面原型</h1>
+      <p>
+        这套原型基于你确认的方向：白底、高级克制、刊物式重点卡、抽象色块与版式感。
+        我保持了首页的编辑感，把热点、知识、详情、我的、收藏、浏览记录统一到同一套设计系统里，
+        整体更像高质量内容产品，而不是资讯流或 AI 工具站。
+      </p>
+
+      <div class="tokens">
+        <div class="token">
+          <div class="swatch" style="background:#ffffff;"></div>
+          <strong>Primary Background</strong>
+          <span>#FFFFFF</span>
+        </div>
+        <div class="token">
+          <div class="swatch" style="background:#faf7f2;"></div>
+          <strong>Soft Background</strong>
+          <span>#FAF7F2</span>
+        </div>
+        <div class="token">
+          <div class="swatch" style="background:#1e2a33;"></div>
+          <strong>Body Ink</strong>
+          <span>#1E2A33</span>
+        </div>
+        <div class="token">
+          <div class="swatch" style="background:#66737f;"></div>
+          <strong>Secondary Text</strong>
+          <span>#66737F</span>
+        </div>
+        <div class="token">
+          <div class="swatch" style="background:#a96a43;"></div>
+          <strong>Editorial Accent</strong>
+          <span>#A96A43</span>
+        </div>
+        <div class="token">
+          <div class="swatch" style="background:#f3e7dc;"></div>
+          <strong>Accent Surface</strong>
+          <span>#F3E7DC</span>
+        </div>
+      </div>
+
+      <div class="jump">
+        <a href="#home">首页</a>
+        <a href="#hot">热点页</a>
+        <a href="#knowledge">知识页</a>
+        <a href="#detail">详情页</a>
+        <a href="#mine">我的页</a>
+        <a href="#favorites">收藏页</a>
+        <a href="#history">浏览记录页</a>
+      </div>
+    </section>
+
+    <section class="screens">
+      <article class="screen-group" id="home">
+        <h2>首页</h2>
+        <p>签到区作为首屏主编重点卡，下面自然承接热点与知识，不做普通新闻首页的拥挤排法。</p>
+        <div class="phone">
+          <div class="screen">
+            <div class="screen-inner">
+              <div class="status">
+                <span>9:41</span>
+                <span class="signal" aria-hidden="true"></span>
+              </div>
+
+              <div class="topbar">
+                <div>
+                  <p>早上好，今天适合完成一次轻学习</p>
+                  <h3>先签到，再看今天最值的 AI 信息</h3>
+                </div>
+                <div class="avatar">L</div>
+              </div>
+
+              <section class="card editorial-card">
+                <div class="editorial-head">
+                  <div>
+                    <div class="label-row">
+                      <span>今日签到</span>
+                      <span class="chip chip-accent">核心入口</span>
+                    </div>
+                    <h4>正在形成你的 AI 学习惯性</h4>
+                    <p>今天还没签到。完成一次打卡后，继续浏览为职场人筛过的热点与知识卡片。</p>
+                  </div>
+                  <div class="ring">
+                    <div>
+                      <strong>28</strong>
+                      <span>连续天数</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="stats-row">
+                  <div class="stat">
+                    <span class="stat-label">累计签到</span>
+                    <span class="stat-value">94</span>
+                  </div>
+                  <div class="stat">
+                    <span class="stat-label">本周完成</span>
+                    <span class="stat-value">5/7</span>
+                  </div>
+                  <div class="stat">
+                    <span class="stat-label">今日状态</span>
+                    <span class="stat-value">待签</span>
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <button class="btn btn-primary">立即签到</button>
+                  <button class="btn btn-secondary">签到记录</button>
+                </div>
+              </section>
+
+              <section class="section">
+                <div class="section-head">
+                  <h5>今日热点</h5>
+                  <span>编辑精选 3 条</span>
+                </div>
+                <div class="card story">
+                  <div class="story-top">
+                    <span class="chip chip-accent">置顶解读</span>
+                    <span>09:20 更新</span>
+                  </div>
+                  <h6>多家办公产品开始内置 AI 代理，工具能力从“辅助”走向“代办”</h6>
+                  <p>不只是写文案，新的重点正在变成流程执行。对职场人的意义是，AI 将越来越像协作对象，而不是单点工具。</p>
+                  <div class="story-meta">
+                    <span class="chip chip-soft">流程自动化</span>
+                    <span class="chip chip-soft">办公提效</span>
+                  </div>
+                </div>
+                <div class="card story">
+                  <div class="story-top">
+                    <span class="chip chip-soft">热点速览</span>
+                    <span>07:55 发布</span>
+                  </div>
+                  <h6>AI 搜索结果开始更强调来源可信度，行业从“能答”转向“答得稳”</h6>
+                  <p>对内容团队和知识型岗位来说，接下来更值钱的不是快，而是结构化、可溯源和可复用。</p>
+                </div>
+              </section>
+
+              <section class="section">
+                <div class="section-head">
+                  <h5>知识精选</h5>
+                  <span>今天适合读 5 分钟</span>
+                </div>
+                <div class="card story">
+                  <div class="story-top">
+                    <span class="chip chip-accent">提示词技巧</span>
+                    <span>中级</span>
+                  </div>
+                  <h6>把“让 AI 帮我写”改成“让 AI 先拆任务”，输出质量会稳定很多</h6>
+                  <p>当你先让模型识别目标、对象、约束与格式时，结果会明显更接近真实工作场景。</p>
+                  <div class="story-meta">
+                    <span class="chip chip-soft">结构化表达</span>
+                    <span class="chip chip-soft">模板复用</span>
+                  </div>
+                </div>
+              </section>
+
+              <nav class="tab-bar">
+                <div class="tab active">首页</div>
+                <div class="tab">热点</div>
+                <div class="tab">知识</div>
+                <div class="tab">我的</div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="screen-group" id="hot">
+        <h2>热点页</h2>
+        <p>不是普通新闻流，而是“筛选 + 摘要 + 对职场人的影响”。推荐位和列表区有明显层级差。</p>
+        <div class="phone">
+          <div class="screen">
+            <div class="screen-inner">
+              <div class="status">
+                <span>9:41</span>
+                <span class="signal" aria-hidden="true"></span>
+              </div>
+
+              <div class="topbar">
+                <div>
+                  <p>给职场人的 AI 热点解读</p>
+                  <h3>不是看得多，而是看得准</h3>
+                </div>
+                <div class="avatar">H</div>
+              </div>
+
+              <div class="filters">
+                <span class="filter active">推荐</span>
+                <span class="filter">模型</span>
+                <span class="filter">办公提效</span>
+                <span class="filter">公司动态</span>
+              </div>
+
+              <section class="card lead-card">
+                <div class="story-top">
+                  <span class="chip chip-accent">本日推荐</span>
+                  <span>Issue 042</span>
+                </div>
+                <h4>AI 代理能力正在进入办公主流程，真正的变化不是“写得更快”</h4>
+                <p>越来越多工具开始承接拆解、协作、分发与复核动作。对职场人来说，接下来最重要的是任务编排与质量把关。</p>
+                <div class="meta-row">
+                  <span class="chip chip-soft">趋势判断</span>
+                  <span class="chip chip-soft">流程协作</span>
+                  <span class="chip chip-soft">09:20 更新</span>
+                </div>
+              </section>
+
+              <div class="card story">
+                <div class="story-top">
+                  <span class="chip chip-accent">置顶</span>
+                  <span>07:55</span>
+                </div>
+                <h6>AI 搜索产品更强调答案来源可验证，花哨感正在被稳定性替代</h6>
+                <p>对于依赖知识判断的岗位来说，接下来会更关注“结果能不能复核”，而不是“看起来厉不厉害”。</p>
+                <div class="story-meta">
+                  <span class="chip chip-soft">可信度</span>
+                  <span class="chip chip-soft">知识工作</span>
+                </div>
+              </div>
+
+              <div class="card story">
+                <div class="story-top">
+                  <span class="chip chip-soft">最新</span>
+                  <span>06:30</span>
+                </div>
+                <h6>多家 SaaS 开始把 AI 变成入口页，而不是附加按钮</h6>
+                <p>这意味着日常办公场景里，AI 会越来越像默认流程的一部分，而不是额外尝试的插件。</p>
+                <div class="story-meta">
+                  <span class="chip chip-soft">产品策略</span>
+                  <span class="chip chip-soft">工作流</span>
+                </div>
+              </div>
+
+              <div class="card story">
+                <div class="story-top">
+                  <span class="chip chip-soft">观察</span>
+                  <span>昨天</span>
+                </div>
+                <h6>“会不会用 AI”正在变成基础能力，“能不能用得稳”开始拉开差距</h6>
+                <p>后续真正能形成优势的，会是模板沉淀、流程可复用和团队内协作能力。</p>
+              </div>
+
+              <nav class="tab-bar">
+                <div class="tab">首页</div>
+                <div class="tab active">热点</div>
+                <div class="tab">知识</div>
+                <div class="tab">我的</div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="screen-group" id="knowledge">
+        <h2>知识页</h2>
+        <p>更像知识卡片库，而不是课程中心。分类、难度、收藏感都保持轻量，不压迫阅读。</p>
+        <div class="phone">
+          <div class="screen">
+            <div class="screen-inner">
+              <div class="status">
+                <span>9:41</span>
+                <span class="signal" aria-hidden="true"></span>
+              </div>
+
+              <div class="topbar">
+                <div>
+                  <p>面向职场人的 AI 知识库</p>
+                  <h3>短、准、可复用</h3>
+                </div>
+                <div class="avatar">K</div>
+              </div>
+
+              <div class="filters">
+                <span class="filter active">全部</span>
+                <span class="filter">AI入门</span>
+                <span class="filter">办公提效</span>
+                <span class="filter">提示词</span>
+              </div>
+
+              <div class="card story">
+                <div class="story-top">
+                  <span class="chip chip-accent">办公提效</span>
+                  <span>中级</span>
+                </div>
+                <h6>先给 AI 一个稳定结构，再让它补内容，职场输出会更可靠</h6>
+                <p>会议纪要、方案摘要、周报、邮件草稿都适合先搭结构。这样输出更接近真实工作需要，也更容易复用。</p>
+                <div class="story-meta">
+                  <span class="chip chip-soft">模板思维</span>
+                  <span class="chip chip-soft">值得收藏</span>
+                </div>
+              </div>
+
+              <div class="card story">
+                <div class="story-top">
+                  <span class="chip chip-soft">提示词技巧</span>
+                  <span>入门</span>
+                </div>
+                <h6>“背景 + 目标 + 约束 + 输出格式”是职场场景最稳的 4 段式写法</h6>
+                <p>这套写法足够轻，但能解决大多数“AI 回答看着对、实际上不好用”的问题。</p>
+                <div class="story-meta">
+                  <span class="chip chip-soft">基础方法</span>
+                  <span class="chip chip-soft">适合新手</span>
+                </div>
+              </div>
+
+              <div class="card story">
+                <div class="story-top">
+                  <span class="chip chip-soft">工具介绍</span>
+                  <span>中级</span>
+                </div>
+                <h6>挑工具不要只看功能数量，更要看它能否进入你已有的工作流程</h6>
+                <p>真正能长期留下来的工具，往往不是最炫的，而是能和你日常工作接得上的。</p>
+              </div>
+
+              <div class="card story">
+                <div class="story-top">
+                  <span class="chip chip-soft">案例拆解</span>
+                  <span>5 分钟可读</span>
+                </div>
+                <h6>把客户沟通、资料整理、汇报提炼交给 AI 时，哪些环节必须保留人工判断</h6>
+                <p>学会区分“可以自动化”和“必须人工确认”的边界，是职场用 AI 的关键能力。</p>
+              </div>
+
+              <nav class="tab-bar">
+                <div class="tab">首页</div>
+                <div class="tab">热点</div>
+                <div class="tab active">知识</div>
+                <div class="tab">我的</div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="screen-group" id="detail">
+        <h2>详情页</h2>
+        <p>阅读感优先，像刊物文章页，不像公众号复制页。重点信息做成摘要块、启发块和收藏动作。</p>
+        <div class="phone">
+          <div class="screen">
+            <div class="screen-inner">
+              <div class="status">
+                <span>9:41</span>
+                <span class="signal" aria-hidden="true"></span>
+              </div>
+
+              <div class="backbar">
+                <span class="back">返回</span>
+                <span>收藏 · 分享</span>
+              </div>
+
+              <div class="story-top" style="margin-bottom:12px;">
+                <span class="chip chip-accent">热点解读</span>
+                <span>今天 09:20</span>
+              </div>
+
+              <h3 class="article-title">AI 代理能力开始进入办公主流程，职场人的价值将重新回到判断与整合</h3>
+              <p class="article-summary">
+                新一轮变化不只是工具更新，而是工作流结构本身被改写。很多岗位会从“亲自做”转向“设计流程、审核结果、做关键决策”。
+              </p>
+
+              <div class="meta-row" style="margin-top:14px;">
+                <span class="chip chip-soft">流程自动化</span>
+                <span class="chip chip-soft">岗位变化</span>
+                <span class="chip chip-soft">办公提效</span>
+              </div>
+
+              <section class="content-block">
+                <h5>关键结论</h5>
+                <p class="quote">下一阶段职场 AI 的竞争，不只是“会不会用工具”，而是“能不能把 AI 放进可靠的工作流程”。</p>
+              </section>
+
+              <section class="content-block">
+                <h5>事件背景</h5>
+                <p>越来越多办公产品不再把 AI 放在边角位置，而是直接让它参与任务拆解、素材整理、结果初稿和协作推进。对个体来说，这会让很多重复劳动继续减少，但也抬高了方法设计与质量审查的重要性。</p>
+              </section>
+
+              <section class="content-block">
+                <h5>对职场人的启发</h5>
+                <p>以后真正高价值的能力，不只是“能向 AI 提问”，而是“能不能明确目标、给出上下文、设定约束、判断输出是否可用”。这也是为什么模板、流程和判断力会越来越重要。</p>
+              </section>
+
+              <section class="content-block">
+                <h5>延伸阅读</h5>
+                <p>建议继续看“如何让 AI 输出更稳定”和“模板思维在职场场景里的应用”，这两类知识会直接支撑你把热点理解转成可执行方法。</p>
+              </section>
+
+              <div class="floating-actions">
+                <button class="btn btn-secondary">收藏文章</button>
+                <button class="btn btn-primary">继续阅读相关内容</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="screen-group" id="mine">
+        <h2>我的页</h2>
+        <p>不是传统设置页，而是轻成长面板。用户状态、签到沉淀、收藏入口都集中在一个安静的结构里。</p>
+        <div class="phone">
+          <div class="screen">
+            <div class="screen-inner">
+              <div class="status">
+                <span>9:41</span>
+                <span class="signal" aria-hidden="true"></span>
+              </div>
+
+              <div class="topbar">
+                <div>
+                  <p>你的成长沉淀</p>
+                  <h3>学一点，也要留得住</h3>
+                </div>
+                <div class="avatar">M</div>
+              </div>
+
+              <section class="card profile-card">
+                <div class="profile-top">
+                  <div class="profile-avatar">林</div>
+                  <div>
+                    <h4>林知行</h4>
+                    <p>连续学习中 · 内容型成长路径</p>
+                  </div>
+                </div>
+
+                <div class="mini-grid">
+                  <div class="mini-card">
+                    <span>连续签到</span>
+                    <strong>28</strong>
+                  </div>
+                  <div class="mini-card">
+                    <span>累计签到</span>
+                    <strong>94</strong>
+                  </div>
+                </div>
+
+                <div class="calendar">
+                  <div class="day active"></div>
+                  <div class="day active"></div>
+                  <div class="day active"></div>
+                  <div class="day active"></div>
+                  <div class="day active"></div>
+                  <div class="day"></div>
+                  <div class="day"></div>
+                  <div class="day active"></div>
+                  <div class="day active"></div>
+                  <div class="day active"></div>
+                  <div class="day active"></div>
+                  <div class="day active"></div>
+                  <div class="day active"></div>
+                  <div class="day"></div>
+                  <div class="day active"></div>
+                  <div class="day active"></div>
+                  <div class="day active"></div>
+                  <div class="day active"></div>
+                  <div class="day active"></div>
+                  <div class="day"></div>
+                  <div class="day"></div>
+                </div>
+              </section>
+
+              <section class="card menu-card">
+                <div class="menu-item">
+                  <div class="menu-title">
+                    <strong>我的收藏</strong>
+                    <span>回看值得复用的热点与知识</span>
+                  </div>
+                  <span class="arrow"></span>
+                </div>
+                <div class="menu-item">
+                  <div class="menu-title">
+                    <strong>浏览记录</strong>
+                    <span>找回最近读过的内容</span>
+                  </div>
+                  <span class="arrow"></span>
+                </div>
+                <div class="menu-item">
+                  <div class="menu-title">
+                    <strong>个人资料</strong>
+                    <span>昵称、头像、登录信息</span>
+                  </div>
+                  <span class="arrow"></span>
+                </div>
+              </section>
+
+              <nav class="tab-bar">
+                <div class="tab">首页</div>
+                <div class="tab">热点</div>
+                <div class="tab">知识</div>
+                <div class="tab active">我的</div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="screen-group" id="favorites">
+        <h2>收藏页</h2>
+        <p>强调“沉淀感”，像个人选集，不是简单列表。内容优先级和标签都保持清楚。</p>
+        <div class="phone">
+          <div class="screen">
+            <div class="screen-inner">
+              <div class="status">
+                <span>9:41</span>
+                <span class="signal" aria-hidden="true"></span>
+              </div>
+
+              <div class="backbar">
+                <span class="back">返回</span>
+                <span>已收藏 12 条</span>
+              </div>
+
+              <div class="topbar" style="margin-bottom:16px;">
+                <div>
+                  <p>你的个人内容选集</p>
+                  <h3>值得反复回看的东西</h3>
+                </div>
+              </div>
+
+              <div class="filters">
+                <span class="filter active">全部</span>
+                <span class="filter">热点</span>
+                <span class="filter">知识</span>
+              </div>
+
+              <div class="card list-card">
+                <div class="story-top">
+                  <span class="chip chip-accent">热点</span>
+                  <span>昨天收藏</span>
+                </div>
+                <h4>AI 搜索结果开始更强调来源可信度，行业从“能答”转向“答得稳”</h4>
+                <p>这类判断类内容会直接影响你后续怎么选工具、怎么设计流程，很适合回看。</p>
+              </div>
+
+              <div class="card list-card">
+                <div class="story-top">
+                  <span class="chip chip-soft">知识</span>
+                  <span>2 天前</span>
+                </div>
+                <h4>“背景 + 目标 + 约束 + 输出格式”是职场场景最稳的 4 段式写法</h4>
+                <p>适合拿来沉淀成自己的提示词模板库，后续在不同工作场景里复用。</p>
+              </div>
+
+              <div class="card list-card">
+                <div class="story-top">
+                  <span class="chip chip-soft">知识</span>
+                  <span>上周</span>
+                </div>
+                <h4>先写结构再补内容，为什么比一上来让 AI 直接写全文更可靠</h4>
+                <p>这是当前最值得先建立起来的职场 AI 方法之一。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="screen-group" id="history">
+        <h2>浏览记录页</h2>
+        <p>视觉更轻，像阅读轨迹。重点是帮用户快速找回读过的内容，而不是强化收藏关系。</p>
+        <div class="phone">
+          <div class="screen">
+            <div class="screen-inner">
+              <div class="status">
+                <span>9:41</span>
+                <span class="signal" aria-hidden="true"></span>
+              </div>
+
+              <div class="backbar">
+                <span class="back">返回</span>
+                <span>最近 7 天</span>
+              </div>
+
+              <div class="topbar" style="margin-bottom:16px;">
+                <div>
+                  <p>阅读轨迹</p>
+                  <h3>你最近看过这些内容</h3>
+                </div>
+              </div>
+
+              <div class="card list-card">
+                <div class="story-top">
+                  <span class="chip chip-soft">今天 08:42</span>
+                  <span>热点</span>
+                </div>
+                <h4>AI 代理能力开始进入办公主流程，职场人的价值将重新回到判断与整合</h4>
+                <p>阅读到“对职场人的启发”部分，适合继续回看后收藏。</p>
+              </div>
+
+              <div class="card list-card">
+                <div class="story-top">
+                  <span class="chip chip-soft">昨天 19:18</span>
+                  <span>知识</span>
+                </div>
+                <h4>先给 AI 一个稳定结构，再让它补内容，职场输出会更可靠</h4>
+                <p>阅读到第 2 段，后续可以考虑保存为模板参考。</p>
+              </div>
+
+              <div class="card list-card">
+                <div class="story-top">
+                  <span class="chip chip-soft">前天 12:05</span>
+                  <span>热点</span>
+                </div>
+                <h4>多家 SaaS 开始把 AI 变成入口页，而不是附加按钮</h4>
+                <p>适合和你当前使用的工具栈一起对照看，判断哪些变化值得跟进。</p>
+              </div>
+
+              <div class="card list-card empty">
+                暂无更早记录
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

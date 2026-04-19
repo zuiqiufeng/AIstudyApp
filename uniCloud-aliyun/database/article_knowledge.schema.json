@@ -1,0 +1,38 @@
+{
+	"bsonType": "object",
+	"required": ["title", "intro", "content", "category", "status", "created_at", "updated_at"],
+	"properties": {
+		"title": { "bsonType": "string" },
+		"intro": { "bsonType": "string" },
+		"content": { "bsonType": "string" },
+		"cover": { "bsonType": "string" },
+		"category": { "bsonType": "string" },
+		"tags": {
+			"bsonType": "array",
+			"items": { "bsonType": "string" }
+		},
+		"level": { "enum": ["beginner", "intermediate", "advanced"] },
+		"read_minutes": { "bsonType": "int" },
+		"audience": { "bsonType": "string" },
+		"publish_at": {},
+		"is_recommend": { "bsonType": "bool" },
+		"is_top": { "bsonType": "bool" },
+		"sort": { "bsonType": "int" },
+		"status": { "enum": ["draft", "published", "offline"] },
+		"blocks": {
+			"bsonType": "array",
+			"items": {
+				"bsonType": "object",
+				"properties": {
+					"title": { "bsonType": "string" },
+					"body": { "bsonType": "string" },
+					"quote": { "bsonType": "bool" }
+				}
+			}
+		},
+		"view_count": { "bsonType": "int" },
+		"favorite_count": { "bsonType": "int" },
+		"created_at": {},
+		"updated_at": {}
+	}
+}

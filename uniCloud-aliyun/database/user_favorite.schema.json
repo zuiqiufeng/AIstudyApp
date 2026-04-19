@@ -1,0 +1,10 @@
+{
+	"bsonType": "object",
+	"required": ["user_id", "target_id", "target_type", "created_at"],
+	"properties": {
+		"user_id": { "bsonType": "string" },
+		"target_id": { "bsonType": "string" },
+		"target_type": { "enum": ["hot", "knowledge"] },
+		"created_at": {}
+	}
+}
