@@ -1,8 +1,8 @@
 {
     "id": "ila-user-id-login",
-    "name": "一键登录、微信登录、短信验证码登录、用户密码登录、邮箱登录、苹果登录、支付宝登录",
+    "name": "ai-study-miniapp",
     "version": "1.0.1",
-    "description": "提供极简教程，用最快的速度入门uni-id和uni-id-pages。用最小配置和操作就能测试运行。用户中心、小程序登录、微信手机号登录、qq登录、apple登录。 vx:xiaoluobu7",
+    "description": "AI 知识学习与热点分享微信小程序，支持知识内容、AI 热点、专题学习、考试练习、签到打卡、收藏与后台内容管理。",
     "main": "main.js",
     "scripts": {
         "test": "node --test tests/shared/*.test.js tests/cloud/*.test.js",
@@ -10,16 +10,16 @@
         "test:cloud": "node --test tests/cloud/*.test.js"
     },
     "keywords": [
-        "用户中心",
-        "一键登录",
-        "微信登录",
-        "短信验证码登录",
-        "用户密码登录"
+        "AI知识",
+        "AI热点",
+        "微信小程序",
+        "签到打卡",
+        "内容管理"
     ],
     "author": "",
     "license": "ISC",
     "dependencies": [],
-    "displayName": "一键登录、微信登录、短信验证码登录、用户密码登录、邮箱登录、苹果登录、支付宝登录",
+    "displayName": "AIStudy AI知识学习小程序",
     "dcloudext": {
         "category": [
             "uni-app前端模板",

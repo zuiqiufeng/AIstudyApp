@@ -1,37 +1,35 @@
-用户中心、一键登录、微信登录、短信验证码登录、用户密码登录、邮箱登录、微信手机号登录、苹果apple登录、QQ登录、支付宝登录。  
-提供极简教程，用最快的速度入门uni-id和uni-id-pages。用最小配置和操作就能测试运行。  
+# AIStudy 小程序
 
-[更多功能介绍](https://uniapp.dcloud.net.cn/uniCloud/uni-id-pages.html)   
+AIStudy 是一个面向微信小程序的 AI 知识学习与内容运营项目，聚焦 AI 知识分享、AI 热点速览、专题内容学习、考试练习、每日签到和内容收藏。
 
-#教程
-<img alt="" src="https://mp-848725e2-a2cc-430f-939b-e398ae9fad5c.cdn.bspapp.com/ila-user-id-login/other/doc.png" />
-<img alt="" src="https://mp-848725e2-a2cc-430f-939b-e398ae9fad5c.cdn.bspapp.com/ila-user-id-login/other/doc1.png" />
+项目由小程序端和后台管理端组成。后台负责内容发布、分类管理、标签管理、推荐配置和资源维护，小程序负责内容分发、学习互动和用户成长记录。
 
-#手机
-<img alt="" src="https://mp-848725e2-a2cc-430f-939b-e398ae9fad5c.cdn.bspapp.com/ila-user-id-login/m/oneKey.jpg" />
-<img alt="" src="https://mp-848725e2-a2cc-430f-939b-e398ae9fad5c.cdn.bspapp.com/ila-user-id-login/m/wxlogin.jpg" />
-<img alt="" src="https://mp-848725e2-a2cc-430f-939b-e398ae9fad5c.cdn.bspapp.com/ila-user-id-login/m/bind.jpg" />
-<img alt="" src="https://mp-848725e2-a2cc-430f-939b-e398ae9fad5c.cdn.bspapp.com/ila-user-id-login/m/bind1.jpg" />
-<img alt="" src="https://mp-848725e2-a2cc-430f-939b-e398ae9fad5c.cdn.bspapp.com/ila-user-id-login/m/msg.jpg" />
-<img alt="" src="https://mp-848725e2-a2cc-430f-939b-e398ae9fad5c.cdn.bspapp.com/ila-user-id-login/m/msg1.jpg" />
-<img alt="" src="https://mp-848725e2-a2cc-430f-939b-e398ae9fad5c.cdn.bspapp.com/ila-user-id-login/m/oneKey.jpg" />
-<img alt="" src="https://mp-848725e2-a2cc-430f-939b-e398ae9fad5c.cdn.bspapp.com/ila-user-id-login/m/userp.jpg" />
-<img alt="" src="https://mp-848725e2-a2cc-430f-939b-e398ae9fad5c.cdn.bspapp.com/ila-user-id-login/m/profile.jpg" />
-<img alt="" src="https://mp-848725e2-a2cc-430f-939b-e398ae9fad5c.cdn.bspapp.com/ila-user-id-login/m/upAvatar.jpg" />
-<img alt="" src="https://mp-848725e2-a2cc-430f-939b-e398ae9fad5c.cdn.bspapp.com/ila-user-id-login/m/modify.jpg" />
-<img alt="" src="https://mp-848725e2-a2cc-430f-939b-e398ae9fad5c.cdn.bspapp.com/ila-user-id-login/m/reg.jpg" />
-<img alt="" src="https://mp-848725e2-a2cc-430f-939b-e398ae9fad5c.cdn.bspapp.com/ila-user-id-login/m/reset.jpg" />
-<img alt="" src="https://mp-848725e2-a2cc-430f-939b-e398ae9fad5c.cdn.bspapp.com/ila-user-id-login/m/delAcc.jpg" />
+## 核心功能
 
-#PC
-<img alt="" src="https://mp-848725e2-a2cc-430f-939b-e398ae9fad5c.cdn.bspapp.com/ila-user-id-login/pc/pc_wx.png" />
-<img alt="" src="https://mp-848725e2-a2cc-430f-939b-e398ae9fad5c.cdn.bspapp.com/ila-user-id-login/pc/pc_sms.png" />
-<img alt="" src="https://mp-848725e2-a2cc-430f-939b-e398ae9fad5c.cdn.bspapp.com/ila-user-id-login/pc/pc_sms1.png" />
-<img alt="" src="https://mp-848725e2-a2cc-430f-939b-e398ae9fad5c.cdn.bspapp.com/ila-user-id-login/pc/pc_user.png" />
-<img alt="" src="https://mp-848725e2-a2cc-430f-939b-e398ae9fad5c.cdn.bspapp.com/ila-user-id-login/pc/pc_zc.png" />
-<img alt="" src="https://mp-848725e2-a2cc-430f-939b-e398ae9fad5c.cdn.bspapp.com/ila-user-id-login/pc/pc_zhmm.png" />
+- AI 知识分享：图文内容、专题内容、推荐阅读
+- AI 热点速览：热点资讯、趋势观察、精选推荐
+- 知识学习：分类浏览、详情阅读、专题沉淀
+- 学习互动：每日签到、收藏内容、个人成长统计
+- 内容运营：后台发布、排序推荐、状态管理、分类标签维护
 
+## 项目结构
 
-#联系方式
-<img alt="" src="https://mp-848725e2-a2cc-430f-939b-e398ae9fad5c.cdn.bspapp.com/other/weixin.jpg" />
+- `ai学习小程序`：微信小程序前端与 uniCloud 云对象
+- `AI知识管理系统`：内容管理后台
 
+## 技术栈
+
+- `uni-app`
+- `uniCloud`
+- `uni-id / uni-id-pages`
+- `uni-admin`
+
+## 适用场景
+
+- AI 知识科普与学习型小程序
+- AI 热点资讯与内容推荐平台
+- 具备签到、收藏、考试练习能力的知识产品
+
+## 当前定位
+
+这是一个围绕 AI 内容学习与运营搭建的完整项目骨架，已经打通了小程序端、后台管理端、内容数据与用户成长能力，可继续在此基础上扩展专题、题库、活动和会员体系等业务。
