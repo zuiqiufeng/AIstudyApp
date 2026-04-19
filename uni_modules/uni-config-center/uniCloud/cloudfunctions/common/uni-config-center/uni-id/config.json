@@ -27,8 +27,8 @@
     "tokenExpiresIn": 2592000,
     "oauth": {
       "weixin": {
-        "appid": "wxf4bxxxxb7a0371d",
-        "appsecret": "e9dcaad9ca1ddddddda311e80a731b"
+        "appid": "wx-your-app-appid",
+        "appsecret": "your-app-weixin-secret"
       },
       "apple": {
         "bundleId": "苹果开发者后台获取的bundleId"
@@ -38,28 +38,28 @@
   "mp-weixin": {
     "oauth": {
       "weixin": {
-        "appid": "wxa3461c70f83f4c2f",
-        "appsecret": "7bd1acdb129467ea5b4eabef6bc3b28f"
+        "appid": "wx-your-miniapp-appid",
+        "appsecret": "your-miniapp-weixin-secret"
       }
     }
   },
   "web": {
     "oauth": {
       "h5-weixin": {
-        "appid": "wx098276xxxxb810",
-        "appsecret": "9a93e7568xxxxx8d89ceee0158f7"
+        "appid": "wx-your-h5-weixin-appid",
+        "appsecret": "your-h5-weixin-secret"
       },
       "weixin-h5": {
-        "appid": "wx098276dexxxxb810",
-        "appsecret": "9a93e7568xxxxxd89ceee0158f7"
+        "appid": "wx-your-weixin-h5-appid",
+        "appsecret": "your-weixin-h5-secret"
       },
       "web-weixin": {
-        "appid": "wx6cb4xxxxx8c8",
-        "appsecret": "b9e5c0xxxxee21d2d676d"
+        "appid": "wx-your-web-weixin-appid",
+        "appsecret": "your-web-weixin-secret"
       },
   	  "weixin-web": {
-  	    "appid": "wx6cxxxxxxx2d3c88c8",
-  	    "appsecret": "b9e5c0xxxxxx50fee21d2d676d"
+  	    "appid": "wx-your-weixin-web-appid",
+  	    "appsecret": "your-weixin-web-secret"
   	  }
     }
   },
@@ -75,56 +75,56 @@
     "sms": {
       "name": "博览注册验证码模板",
       "codeExpiresIn": 300,
-      "smsKey": "854218bxxxxxxxx3720634",
-      "smsSecret": "409b75cxxxxxxxxx3528276c42",
+      "smsKey": "your-sms-key",
+      "smsSecret": "your-sms-secret",
 	  "scene": {
-	  		"templateId": "xxxxx",
+	  		"templateId": "your-template-id",
 	  		"login": {
-	  		  "templateId": "xxxxx",
+	  		  "templateId": "your-template-id",
 	  		  "codeExpiresIn": 240
 	  		},
 	  		"login-by-sms": {
-	  		  "templateId": "xxxxx",
+	  		  "templateId": "your-template-id",
 	  		  "codeExpiresIn": 240
 	  		},
 	  		"register": {
-	  		  "templateId": "xxxxx",
+	  		  "templateId": "your-template-id",
 	  		  "codeExpiresIn": 240
 	  		},
 	  		"bind": {
-	  		  "templateId": "xxxxx",
+	  		  "templateId": "your-template-id",
 	  		  "codeExpiresIn": 240
 	  		},
 	  		"bind-mobile": {
-	  		  "templateId": "15696",
+	  		  "templateId": "your-template-id",
 	  		  "codeExpiresIn": 240
 	  		},
 	  		"bind-mobile-by-sms": {
-	  		  "templateId": "xxxxx",
+	  		  "templateId": "your-template-id",
 	  		  "codeExpiresIn": 240
 	  		},
 	  		"unbind": {
-	  		  "templateId": "xxxxx",
+	  		  "templateId": "your-template-id",
 	  		  "codeExpiresIn": 240
 	  		},
 	  		"unbind-mobile": {
-	  		  "templateId": "xxxxx",
+	  		  "templateId": "your-template-id",
 	  		  "codeExpiresIn": 240
 	  		},
 	  		"unbind-mobile-by-sms": {
-	  		  "templateId": "xxxxx",
+	  		  "templateId": "your-template-id",
 	  		  "codeExpiresIn": 240
 	  		},
 	  		"reset-pwd-by-sms": {
-	  		  "templateId": "xxxxx",
+	  		  "templateId": "your-template-id",
 	  		  "codeExpiresIn": 240
 	  		}
 	  }
     },
     "univerify": {
-      "appid": "__UNI__BxxxxxxxF",
-      "apiKey": "3908xxxxxxxxxxxxe4d06",
-      "apiSecret": "cac8xxxxxxxxxxxxxxxxxxxxxb882a"
+      "appid": "__UNI__YOUR_UNIVERIFY_APPID",
+      "apiKey": "your-univerify-api-key",
+      "apiSecret": "your-univerify-api-secret"
     }
   }
 }

@@ -1,6 +1,6 @@
 {
     "name" : "一键登录、微信登录、短信验证码登录、用户密码登录、邮箱登录、苹果登录、支付宝登录",
-    "appid" : "__UNI__1A24B33",
+    "appid" : "__UNI__YOUR_APPID",
     "description" : "",
     "versionName" : "1.0.0",
     "versionCode" : "100",
@@ -51,7 +51,7 @@
                 "oauth" : {
                     "univerify" : {},
                     "weixin" : {
-                        "appid" : "wxfxxxxxxxxxxxxxxx371d",
+                        "appid" : "wx-your-app-appid",
                         "UniversalLinks" : ""
                     }
                 },
@@ -103,7 +103,7 @@
     },
     "quickapp" : {},
     "mp-weixin" : {
-        "appid" : "wxa3461c70f83f4c2f",
+        "appid" : "wx-your-miniapp-appid",
         "setting" : {
             "urlCheck" : false
         },
@@ -138,7 +138,7 @@
             "mode" : "hash"
         }
     },
-    "_spaceID" : "9f6xxxxxxxxxxxxxxxxxxxx3fe4",
+    "_spaceID" : "your-space-id",
     "fallbackLocale" : "zh-Hans",
     "locale" : "zh-Hans"
 }
